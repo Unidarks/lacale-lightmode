@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           La Cale Light mode
 @namespace      github.com/unidarks/lacale-lightmode
-@version        1.1.5
+@version        1.1.6
 @description    Un thème clair pour La Cale
 @author         Unidark
 ==/UserStyle== */
@@ -312,6 +312,7 @@
     @media (prefers-color-scheme: light) {
 
         /* -- Forum : Topic --- */
+        
         /* Notes Spoil Moderation Admin */
         details.bbcode-spoiler,
         details.bbcode-note {
@@ -319,6 +320,15 @@
         }
         details > summary {
             color: var(--primary) !important;
+        }
+        
+        /* Custom post text color */
+        span[style^=color] {
+            filter: brightness(0.7) saturate(1.5) !important;
+        }
+        
+        a[rel="noopener noreferrer"] {
+            text-decoration: none !important;
         }
     }
 }
