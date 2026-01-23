@@ -5,7 +5,6 @@
 @description    Un thème clair pour La Cale
 @author         Unidark
 ==/UserStyle== */
-
 @-moz-document regexp("^https://(www.)?la-cale.space.*") {
     @media (prefers-color-scheme: light) {
 
@@ -204,10 +203,9 @@
             color: var(--tw-prose-link);
         }
     }
-    
-    
+
+
     /* LIGHT & DARK GLOBALS */
-    
     /* --- BONUS : Avatar cover fix --- */
     span.relative.rounded-full > img.absolute {
         object-fit: cover !important;
@@ -295,6 +293,21 @@
         }
     }
 }
+
+
+
+@-moz-document regexp("^https://(www.)?la-cale.space/requests.*") {
+    @media (prefers-color-scheme: light) {
+
+        /* -- Requests --- */
+        /* User rating button */
+        button.hover\:bg-brand-primary\/10:hover {
+            background-color: var(--brand-primary-hover) !important;
+        }
+    }
+}
+
+
 
 
 @-moz-document regexp("^https://(www.)?la-cale.space/forums/?.*") {
