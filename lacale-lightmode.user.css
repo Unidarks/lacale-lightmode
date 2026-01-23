@@ -1,10 +1,11 @@
 /* ==UserStyle==
 @name           La Cale Light mode
 @namespace      github.com/unidarks/lacale-lightmode
-@version        1.1.7
+@version        1.1.8
 @description    Un thème clair pour La Cale
 @author         Unidark
 ==/UserStyle== */
+
 @-moz-document regexp("^https://(www.)?la-cale.space.*") {
     @media (prefers-color-scheme: light) {
 
@@ -202,6 +203,16 @@
         .prose :where(a):not(:where([class~=not-prose], [class~=not-prose] *)) {
             color: var(--tw-prose-link);
         }
+    }
+    
+    
+    /* LIGHT & DARK GLOBALS */
+    
+    /* --- BONUS : Avatar cover fix --- */
+    span.relative.rounded-full > img.absolute {
+        object-fit: cover !important;
+        height: 100% !important;
+        top: 0 !important;
     }
 }
 
