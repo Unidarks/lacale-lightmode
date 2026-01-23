@@ -1,0 +1,373 @@
+/* ==UserStyle==
+@name           La Cale Light mode
+@namespace      github.com/unidarks/lacale-lightmode
+@version        1.1.4
+@description    Un thème clair pour La Cale
+@author         Unidark
+==/UserStyle== */
+@-moz-document url-prefix("https://la-cale.space/") {
+    @media (prefers-color-scheme: light) {
+
+        :root {
+            /* --- Base Colors & Foreground --- */
+            --surface-base: #d2b492;
+            --foreground: #0A2947;
+
+            /* --- Brand Colors --- */
+            --brand-primary: #0A3863;
+            /* ou #003F7B */
+            --brand-primary-hover: color-mix(in oklab, var(--brand-primary) 80%, #000);
+            --brand-secondary: color-mix(in oklab, var(--foreground) 60%, transparent);
+
+            /* --- Primary Definitions --- */
+            --primary: var(--foreground);
+            --primary-foreground: color-mix(in oklab, var(--brand-primary) 20%, #FFF);
+            ;
+
+            /* --- Text Hierarchy --- */
+            --text-primary-high: var(--brand-primary);
+            --text-primary-medium: var(--foreground);
+            --text-primary-low: var(--brand-secondary);
+            --text-inverse: var(--primary-foreground);
+            --text-accent-foreground: --foreground;
+            --muted-foreground: color-mix(in oklab, var(--text-primary-low) 60%, transparent);
+
+            /* --- Backgrounds & Surfaces --- */
+            --background: color-mix(in oklab, var(--surface-base) 40%, transparent);
+            --surface-elevated: color-mix(in oklab, var(--surface-base) 95%, #000);
+            --surface-elevated-medium: color-mix(in oklab, var(--surface-base)40%, transparent);
+            --surface-elevated-light: color-mix(in oklab, var(--surface-base)25%, white);
+            --surface-overlay: var(--surface-base);
+            --bg-surface-overlay: color-mix(in oklab, color-mix(in oklab, var(--surface-base) 75%, #000) 50%, transparent);
+            --bg-surface-elevated: var(--surface-elevated-light);
+            --bg-secondary: var(--background);
+            --muted: color-mix(in oklab, var(--surface-base) 40%, transparent);
+
+            /* --- Borders --- */
+            --border-muted: var(--surface-elevated);
+
+            /* --- UI Elements (Cards, Popovers) --- */
+            --card-foreground: var(--foreground);
+            --popover: var(--surface-base);
+            --popover-foreground: --text-primary-high;
+            --accent: color-mix(in oklab, var(--foreground) 20%, transparent);
+
+            /* --- Prose / Content --- */
+            --prose: var(--foreground);
+            --tw-prose-bold: var(--prose);
+            --tw-prose-body: var(--prose);
+            --tw-prose-link: var(--brand-primary);
+
+            /* --- Palette --- */
+            --color-red-500: #AA1B00;
+            --color-amber-500: #0A3863;
+            --color-green-500: #00A542;
+            --color-emerald-500: #008C5D;
+            --color-orange-500: #DA5900;
+            --color-blue-500: #2B5DAA;
+            --color-yellow-500: #D9A000;
+
+            /* --- States --- */
+            --state-error: var(--color-red-500);
+        }
+
+        /* --- Global Elements --- */
+        header,
+        footer {
+            background-color: var(--background);
+        }
+
+        input::placeholder,
+        select::placeholder,
+        optgroup::placeholder,
+        textarea::placeholder {
+            color: var(--muted-foreground);
+        }
+
+        .bg-surface-elevated {
+            background-color: var(--bg-surface-elevated);
+        }
+
+        table tr.bg-surface-elevated {
+            background-color: var(--surface-elevated-light) !important;
+        }
+
+
+
+        /* --- Scrollbars --- */
+        /* Firefox (W3C) */
+        * {
+            scrollbar-width: thin;
+            /* Thumb & Track */
+            scrollbar-color: var(--surface-elevated) var(--background);
+        }
+        /* Chrome, Edge, Safari, Opera (Webkit) */
+        /* Global size*/
+        ::-webkit-scrollbar {
+            width: 10px;
+            /* Largeur pour la barre verticale */
+            height: 10px;
+            /* Hauteur pour la barre horizontale */
+        }
+        /* Background */
+        ::-webkit-scrollbar-track {
+            background: var(--background);
+        }
+        /* Pill */
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--surface-elevated);
+            border-radius: 99px;
+            /* Pill shape */
+            border: 3px solid var(--background);
+        }
+        /* Hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--brand-primary-hover);
+            border-width: 2px;
+            /* On grossit légèrement la barre au survol */
+        }
+        /* Corner */
+        ::-webkit-scrollbar-corner {
+            background: var(--background);
+        }
+
+
+
+        /* --- Dropdown menus --- */
+        a[role="menuitem"] {
+            color: #000;
+        }
+        div[role="menu"].bg-surface-elevated,
+        div[role="listbox"].bg-surface-elevated {
+            background-color: var(--surface-elevated-light) !important;
+        }
+        div[role="listbox"] div[role="option"].focus\:text-accent-foreground:focus {
+            color: var(--brand-primary-hover) !important;
+        }
+
+        /* --- Text Utilities --- */
+        .text-card-foreground {
+            color: var(--foreground);
+        }
+
+        .text-muted-foreground {
+            color: var(--foreground) !important;
+        }
+
+        button.text-muted-foreground {
+            color: var(--surface-base) !important;
+        }
+
+        /* --- Color Utilities --- */
+        .text-red-500 {
+            color: var(--color-red-500) !important;
+        }
+
+        .text-amber-500 {
+            color: var(--color-amber-500) !important;
+        }
+
+        .text-green-500 {
+            color: var(--color-green-500) !important;
+        }
+
+        .text-green-500 {
+            color: var(--color-emerald-500) !important;
+        }
+
+        .text-orange-500 {
+            color: var(--color-orange-500) !important;
+        }
+
+        .text-blue-500 {
+            color: var(--color-blue-500) !important;
+        }
+
+        .text-yellow-500 {
+            color: var(--color-yellow-500) !important;
+        }
+
+        /* --- Components & Prose --- */
+        .bbcode-quote {
+            color: var(--text-primary-medium);
+            border-color: var(--color-amber-500);
+        }
+
+        .prose,
+        .prose :where(strong):not(:where([class~=not-prose], [class~=not-prose] *)) {
+            color: var(--prose) !important;
+        }
+
+        .prose :where(a):not(:where([class~=not-prose], [class~=not-prose] *)) {
+            color: var(--tw-prose-link);
+        }
+    }
+}
+
+@-moz-document url-prefix("https://la-cale.space/upload") {
+    @media (prefers-color-scheme: light) {
+        main>div {
+            background-color: var(--background);
+        }
+    }
+}
+
+
+@-moz-document regexp("https://la-cale.space/(taverne|dashboard)") {
+    @media (prefers-color-scheme: light) {
+        /* --- Shoutbox --- */
+        /* Messages view */
+        body > main > div > div.rounded-xl.border.text-card-foreground.shadow.bg-surface-elevated\/50.border-border-muted.overflow-hidden > div.p-0 > div > div.flex-1.p-0.overflow-hidden.relative.min-h-0,
+        body > .overflow-hidden,
+        .flex-1.p-0.overflow-hidden {
+            background-color: var(--surface-elevated-light);
+        }
+
+        /* Box titles */
+        .border-border-muted\/30 {
+            background-color: var(--surface-elevated);
+        }
+
+        /* User input background */
+        body .overflow-hidden .border-t {
+            background-color: var(--surface-elevated-light) !important;
+        }
+
+        /* React buttons */
+        button:hover {
+            background-color: var(--bg-surface-overlay);
+        }
+
+        /* Is typing */
+        body > main > div > div.rounded-xl.border.text-card-foreground.shadow.bg-surface-elevated\/50.border-border-muted.overflow-hidden > div.p-0 > div > div.flex-1.p-0.overflow-hidden.relative.min-h-0 > div > div.flex.gap-2.items-center.text-xs.text-text-primary-muted.italic.px-2.py-3.bg-surface-base\/50.rounded-md.border.border-border-muted\/30.mx-2,
+        body > main > div > div > div.overflow-hidden.relative > div > div.flex.items-center.text-text-primary-muted.italic.bg-surface-base\/50.border-border-muted\/30 {
+            background-color: var(--surface-elevated-medium) !important;
+        }
+
+        /* Mentions dropdown (dashboard only) */
+        .absolute.overflow-y-auto {
+            background-color: var(--surface-elevated-light) !important;
+        }
+    }
+}
+
+
+
+@-moz-document regexp("https://la-cale.space/(dashboard|search.*|torrents/(cargaisons-fraiches|voiles-dehors|legendes)|profile/.*)") {
+    @media (prefers-color-scheme: light) {
+
+        /* -- Homepage + Torrents list --- */
+        /* Global lighting */
+        .bg-surface-elevated {
+            background-color: var(--surface-elevated-medium) !important;
+        }
+
+        /* Torrents table */
+        .hover\:bg-surface-overlay\/30 {
+            background-color: var(--surface-elevated-light) !important;
+        }
+
+        /* Tags */
+        .text-card-foreground.bg-surface-elevated,
+        .text-card-foreground .bg-surface-base,
+        .bg-secondary,
+        .bg-surface-base {
+            background-color: var(--background) !important;
+        }
+    }
+}
+
+
+@-moz-document url-prefix("https://la-cale.space/forums") {
+    @media (prefers-color-scheme: light) {
+
+        /* -- Forum : Topics list --- */
+        body > main > div > div.rounded-xl.border.text-card-foreground.shadow.bg-surface-elevated.border-border-muted.overflow-hidden {
+            background-color: var(--surface-elevated-light) !important;
+        }
+    }
+}
+
+
+@-moz-document url("https://la-cale.space/forums") {
+    @media (prefers-color-scheme: light) {
+
+        /* -- Forum : Categories --- */
+        .bg-surface-elevated {
+            background-color: var(--surface-elevated-medium) !important;
+        }
+    }
+}
+
+
+@-moz-document url-prefix("https://la-cale.space/forums/topic/") {
+    @media (prefers-color-scheme: light) {
+
+        /* -- Forum : Topic --- */
+        /* Notes Spoil Moderation Admin */
+        details.bbcode-spoiler,
+        details.bbcode-note {
+            background-color: var(--primary-foreground) !important;
+        }
+        details > summary {
+            color: var(--primary) !important;
+        }
+    }
+}
+
+@-moz-document regexp("https://la-cale.space/(tresor|upload|forums/(topic/)?[a-zA-Z0-9]*(/new)?.*)") {
+    @media (prefers-color-scheme: light) {
+
+        /* --- BG Patches --- */
+        /* Boxes */
+        .bg-surface-elevated {
+            background-color: var(--surface-elevated-medium) !important;
+        }
+
+        /* Inputs */
+        .bg-surface-base,
+        .bg-surface-base\/30,
+        div[contenteditable="true"] {
+            background-color: var(--surface-elevated-light) !important;
+        }
+    }
+}
+
+@-moz-document url("https://la-cale.space/upload") {
+    @media (prefers-color-scheme: light) {
+
+        /* -- Upload --- */
+        /* TMDB Dropdown Search result */
+        body > main > div > div > div.container > form > div.rounded-xl.border.text-card-foreground.shadow.bg-surface-elevated.border-border-muted.overflow-hidden > div > div.mt-1.w-full.bg-surface-elevated.border.border-border-muted.rounded-md.overflow-hidden {
+            background-color: var(--surface-elevated-light) !important;
+        }
+    }
+}
+
+
+@-moz-document url("https://la-cale.space/pigeonnier") {
+    @media (prefers-color-scheme: light) {
+
+        /* -- Private messages --- */
+        /* Messages view */
+        body > main > div > div.flex-1.min-h-0 > div > div.flex-1.flex-col.bg-surface-base.relative.w-full.h-full.flex > div,
+        body > main > div > div.flex-1.min-h-0 > div > div.flex-1.flex-col.bg-surface-base.relative.w-full.h-full.hidden.md\:flex {
+            background-color: var(--surface-elevated-light) !important;
+        }
+
+        /* Sidebar */
+        body > main > div > div.flex-1 > div > div.w-full.md\:w-80 > div > div.flex-1.overflow-y-auto {
+            background-color: rgba(255, 255, 255, 0.4) !important;
+        }
+
+        /* Expeditor bubbles */
+        .items-start > .bg-surface-elevated {
+            background-color: var(--surface-elevated-medium) !important;
+        }
+
+        /* User Input */
+        input.bg-surface-base {
+            background-color: var(--surface-elevated-light) !important;
+        }
+    }
+}
