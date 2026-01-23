@@ -1,11 +1,11 @@
 /* ==UserStyle==
 @name           La Cale Light mode
 @namespace      github.com/unidarks/lacale-lightmode
-@version        1.1.4
+@version        1.1.5
 @description    Un thème clair pour La Cale
 @author         Unidark
 ==/UserStyle== */
-@-moz-document url-prefix("https://la-cale.space/") {
+@-moz-document regexp("^https://(www.)?la-cale.space.*") {
     @media (prefers-color-scheme: light) {
 
         :root {
@@ -41,6 +41,7 @@
             --bg-surface-overlay: color-mix(in oklab, color-mix(in oklab, var(--surface-base) 75%, #000) 50%, transparent);
             --bg-surface-elevated: var(--surface-elevated-light);
             --bg-secondary: var(--background);
+            --bg-brand-primary: var(--primary-foreground);
             --muted: color-mix(in oklab, var(--surface-base) 40%, transparent);
 
             /* --- Borders --- */
@@ -204,16 +205,23 @@
     }
 }
 
-@-moz-document url-prefix("https://la-cale.space/upload") {
+@-moz-document regexp("^https://(www.)?la-cale.space/upload") {
     @media (prefers-color-scheme: light) {
+
+        /* -- Upload --- */
         main>div {
             background-color: var(--background);
+        }
+
+        /* TMDB Dropdown Search result */
+        body > main > div > div > div.container > form > div.rounded-xl.border.text-card-foreground.shadow.bg-surface-elevated.border-border-muted.overflow-hidden > div > div.mt-1.w-full.bg-surface-elevated.border.border-border-muted.rounded-md.overflow-hidden {
+            background-color: var(--surface-elevated-light) !important;
         }
     }
 }
 
 
-@-moz-document regexp("https://la-cale.space/(taverne|dashboard)") {
+@-moz-document regexp("^https://(www.)?la-cale.space/(taverne|dashboard)") {
     @media (prefers-color-scheme: light) {
         /* --- Shoutbox --- */
         /* Messages view */
@@ -253,7 +261,7 @@
 
 
 
-@-moz-document regexp("https://la-cale.space/(dashboard|search.*|torrents/(cargaisons-fraiches|voiles-dehors|legendes)|profile/.*)") {
+@-moz-document regexp("^https://(www.)?la-cale.space/(dashboard|search.*|torrents/(cargaisons-fraiches|voiles-dehors|legendes)|profile/.*)") {
     @media (prefers-color-scheme: light) {
 
         /* -- Homepage + Torrents list --- */
@@ -278,7 +286,7 @@
 }
 
 
-@-moz-document url-prefix("https://la-cale.space/forums") {
+@-moz-document regexp("^https://(www.)?la-cale.space/forums/?.*") {
     @media (prefers-color-scheme: light) {
 
         /* -- Forum : Topics list --- */
@@ -289,7 +297,7 @@
 }
 
 
-@-moz-document url("https://la-cale.space/forums") {
+@-moz-document regexp("^https://(www.)?la-cale.space/forums/?") {
     @media (prefers-color-scheme: light) {
 
         /* -- Forum : Categories --- */
@@ -300,7 +308,7 @@
 }
 
 
-@-moz-document url-prefix("https://la-cale.space/forums/topic/") {
+@-moz-document regexp("^https://(www.)?la-cale.space/forums/topic/.*") {
     @media (prefers-color-scheme: light) {
 
         /* -- Forum : Topic --- */
@@ -315,7 +323,7 @@
     }
 }
 
-@-moz-document regexp("https://la-cale.space/(tresor|upload|forums/(topic/)?[a-zA-Z0-9]*(/new)?.*)") {
+@-moz-document regexp("^https://(www.)?la-cale.space/(tresor|upload|forums/(topic/)?[a-zA-Z0-9]*(/new)?.*)") {
     @media (prefers-color-scheme: light) {
 
         /* --- BG Patches --- */
@@ -333,19 +341,9 @@
     }
 }
 
-@-moz-document url("https://la-cale.space/upload") {
-    @media (prefers-color-scheme: light) {
-
-        /* -- Upload --- */
-        /* TMDB Dropdown Search result */
-        body > main > div > div > div.container > form > div.rounded-xl.border.text-card-foreground.shadow.bg-surface-elevated.border-border-muted.overflow-hidden > div > div.mt-1.w-full.bg-surface-elevated.border.border-border-muted.rounded-md.overflow-hidden {
-            background-color: var(--surface-elevated-light) !important;
-        }
-    }
-}
 
 
-@-moz-document url("https://la-cale.space/pigeonnier") {
+@-moz-document regexp("^https://(www.)?la-cale.space/pigeonnier/?.*") {
     @media (prefers-color-scheme: light) {
 
         /* -- Private messages --- */
@@ -368,6 +366,25 @@
         /* User Input */
         input.bg-surface-base {
             background-color: var(--surface-elevated-light) !important;
+        }
+    }
+}
+
+
+
+@-moz-document regexp("^https://(www.)?la-cale.space/tresor/?.*") {
+    @media (prefers-color-scheme: light) {
+
+        /* --- Tresor --- */
+        
+        /* BG Sphere gradient : top */
+        .bg-brand-primary\/20 {
+            background-color: var(--background) !important;
+        }
+
+        /* BG Sphere gradient : left */
+        .bg-brand-secondary\/20 {
+            background-color: var(--background) !important;
         }
     }
 }
