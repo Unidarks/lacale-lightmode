@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           La Cale Light mode
 @namespace      github.com/unidarks/lacale-lightmode
-@version        1.1.6
+@version        1.1.7
 @description    Un thème clair pour La Cale
 @author         Unidark
 ==/UserStyle== */
@@ -289,9 +289,15 @@
 @-moz-document regexp("^https://(www.)?la-cale.space/forums/?.*") {
     @media (prefers-color-scheme: light) {
 
-        /* -- Forum : Topics list --- */
+        /* --- Forum --- */
+        /* Topics list */
         body > main > div > div.rounded-xl.border.text-card-foreground.shadow.bg-surface-elevated.border-border-muted.overflow-hidden {
             background-color: var(--surface-elevated-light) !important;
+        }
+
+        /* User rating button */
+        button.hover\:bg-brand-primary\/10:hover {
+            background-color: var(--brand-primary-hover);
         }
     }
 }
@@ -312,7 +318,6 @@
     @media (prefers-color-scheme: light) {
 
         /* -- Forum : Topic --- */
-        
         /* Notes Spoil Moderation Admin */
         details.bbcode-spoiler,
         details.bbcode-note {
@@ -321,12 +326,12 @@
         details > summary {
             color: var(--primary) !important;
         }
-        
+
         /* Custom post text color */
         span[style^=color] {
             filter: brightness(0.7) saturate(1.5) !important;
         }
-        
+
         a[rel="noopener noreferrer"] {
             text-decoration: none !important;
         }
@@ -386,7 +391,6 @@
     @media (prefers-color-scheme: light) {
 
         /* --- Tresor --- */
-        
         /* BG Sphere gradient : top */
         .bg-brand-primary\/20 {
             background-color: var(--background) !important;
