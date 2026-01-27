@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           La Cale Light mode
 @namespace      github.com/unidarks/lacale-lightmode
-@version        1.1.11
+@version        1.1.12
 @description    Un thème clair pour La Cale en version 1.1.16
 @author         Unidark
 ==/UserStyle== */
@@ -10,7 +10,7 @@
 
         /* --- Version --- */
         footer .border-t.flex small:last-of-type::after {
-            content: "Light mode v1.1.11 uniquement pour le site v1.1.16";
+            content: "Light mode v1.1.12 uniquement pour le site v1.1.16";
             opacity: 0.5;
             display:block;
         }
@@ -75,6 +75,7 @@
             --tw-prose-bold: var(--prose);
             --tw-prose-body: var(--prose);
             --tw-prose-link: var(--brand-primary);
+            --tw-prose-headings: var(--prose);
 
             /* --- Palette --- */
             --color-red-500: #AA1B00;
@@ -212,7 +213,15 @@
         }
 
         .prose,
-        .prose :where(strong):not(:where([class~=not-prose], [class~=not-prose] *)) {
+        .prose :where(strong):not(:where([class~=not-prose], [class~=not-prose] *)),
+        .prose :where(code):not(:where([class~=not-prose],[class~=not-prose] *)),
+        .prose :where(h1):not(:where([class~=not-prose],[class~=not-prose] *)),
+        .prose :where(h2):not(:where([class~=not-prose],[class~=not-prose] *)),
+        .prose :where(h3):not(:where([class~=not-prose],[class~=not-prose] *)),
+        .prose :where(h4):not(:where([class~=not-prose],[class~=not-prose] *)),
+        .prose :where(h5):not(:where([class~=not-prose],[class~=not-prose] *)),
+        .prose :where(h6):not(:where([class~=not-prose],[class~=not-prose] *)),
+        .prose :where(thead th):not(:where([class~=not-prose],[class~=not-prose] *)) {
             color: var(--prose) !important;
         }
 
