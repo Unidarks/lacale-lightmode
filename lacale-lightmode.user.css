@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           La Cale Light mode
 @namespace      github.com/unidarks/lacale-lightmode
-@version        1.1.15
+@version        1.1.17
 @description    Un thème clair pour La Cale en version 1.1.16
 @author         Unidark
 ==/UserStyle== */
@@ -10,7 +10,7 @@
 
         /* --- Version --- */
         footer .border-t.flex small:last-of-type::after {
-            content: "Light mode v1.1.15 uniquement pour le site v1.1.16";
+            content: "Light mode v1.1.17 uniquement pour le site v1.1.16";
             opacity: 0.5;
             display:block;
         }
@@ -334,6 +334,18 @@
 }
 
 
+@-moz-document regexp("^https://(www.)?la-cale.space/taverne") {
+    @media (prefers-color-scheme: light) {
+        /* --- Shoutbox --- */
+        /* Users avatars */
+        body > main > div > div > div.flex-1.p-0.overflow-hidden.relative.min-h-0 > div > div > a > span > span {
+            background-color: var(--background);
+        }
+        
+    }
+}
+
+
 
 @-moz-document regexp("^https://(www.)?la-cale.space/(dashboard|search.*|torrents/(cargaisons-fraiches|voiles-dehors|legendes)|profile/.*)") {
     @media (prefers-color-scheme: light) {
@@ -392,6 +404,7 @@
 }
 
 
+
 @-moz-document regexp("^https://(www.)?la-cale.space/forums/?") {
     @media (prefers-color-scheme: light) {
 
@@ -401,6 +414,7 @@
         }
     }
 }
+
 
 
 @-moz-document regexp("^https://(www.)?la-cale.space/forums/topic/.*") {
@@ -491,6 +505,7 @@
         }
     }
 }
+
 
 
 @-moz-document regexp("^https://(www.)?la-cale.space/search.*") {
