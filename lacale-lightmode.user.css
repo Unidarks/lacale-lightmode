@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           La Cale Light mode
 @namespace      github.com/unidarks/lacale-lightmode
-@version        1.1.13
+@version        1.1.14
 @description    Un thème clair pour La Cale en version 1.1.16
 @author         Unidark
 ==/UserStyle== */
@@ -10,7 +10,7 @@
 
         /* --- Version --- */
         footer .border-t.flex small:last-of-type::after {
-            content: "Light mode v1.1.13 uniquement pour le site v1.1.16";
+            content: "Light mode v1.1.14 uniquement pour le site v1.1.16";
             opacity: 0.5;
             display:block;
         }
@@ -258,6 +258,14 @@
         }
         div[role="menu"] .focus\:text-accent-foreground:focus {
             color: var(--primary) !important;
+        }
+        
+        /* --- Crash page --- */
+        .text-\[\#CFCBC3\] {
+            color: var(--foreground) !important;
+        }
+        .bg-\[\#152F46\]\/50 {
+            background-color: var(--surface-elevated-light) !important;
         }
     }
 
