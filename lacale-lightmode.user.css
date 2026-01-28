@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           La Cale Light mode
 @namespace      github.com/unidarks/lacale-lightmode
-@version        1.1.12
+@version        1.1.13
 @description    Un thème clair pour La Cale en version 1.1.16
 @author         Unidark
 ==/UserStyle== */
@@ -10,7 +10,7 @@
 
         /* --- Version --- */
         footer .border-t.flex small:last-of-type::after {
-            content: "Light mode v1.1.12 uniquement pour le site v1.1.16";
+            content: "Light mode v1.1.13 uniquement pour le site v1.1.16";
             opacity: 0.5;
             display:block;
         }
@@ -39,7 +39,7 @@
             /* --- Primary Definitions --- */
             --primary: var(--foreground);
             --primary-foreground: color-mix(in oklab, var(--brand-primary) 20%, #FFF);
-            ;
+            
 
             /* --- Text Hierarchy --- */
             --text-primary-high: var(--brand-primary);
@@ -52,7 +52,7 @@
             /* --- Backgrounds & Surfaces --- */
             --background: color-mix(in oklab, var(--surface-base) 40%, transparent);
             --surface-elevated: color-mix(in oklab, var(--surface-base) 95%, #000);
-            --surface-elevated-medium: color-mix(in oklab, var(--surface-base)40%, transparent);
+            --surface-elevated-medium: color-mix(in oklab, var(--surface-base)40%, transparent); /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
             --surface-elevated-light: color-mix(in oklab, var(--surface-base)25%, white);
             --surface-overlay: var(--surface-base);
             --bg-surface-overlay: color-mix(in oklab, color-mix(in oklab, var(--surface-base) 75%, #000) 50%, transparent);
@@ -88,6 +88,7 @@
 
             /* --- States --- */
             --state-error: var(--color-red-500);
+            --success-text: var(--color-green-500);
         }
 
         /* --- Global Elements --- */
@@ -176,6 +177,22 @@
         button.text-muted-foreground {
             color: var(--surface-base) !important;
         }
+        
+        [data-rich-colors=true][data-type=success] {
+            color: var(--color-green-500) !important;
+        }
+        
+        [data-rich-colors=true][data-type=error] {
+            color: var(--color-red-500) !important;
+        }
+        
+        [data-rich-colors=true][data-type=warning] {
+            color: var(--color-orange-500) !important;
+        }
+        
+        [data-rich-colors=true][data-type=info] {
+            color: var(--color-blue-500) !important;
+        }
 
         /* --- Color Utilities --- */
         .text-red-500 {
@@ -205,6 +222,7 @@
         .text-yellow-500 {
             color: var(--color-yellow-500) !important;
         }
+        
 
         /* --- Components & Prose --- */
         .bbcode-quote {
@@ -227,6 +245,19 @@
 
         .prose :where(a):not(:where([class~=not-prose], [class~=not-prose] *)) {
             color: var(--tw-prose-link);
+        }
+        
+        /* --- Notification toaster --- */
+        li[data-sonner-toast].bg-surface-elevated {
+            background-color: var(--surface-elevated-light) !important;
+        } 
+        
+        /* --- Journal de bord / Notifications dropdown list --- */
+        div[role="menu"].bg-surface-base {
+            background-color: var(--surface-elevated-light) !important;
+        }
+        div[role="menu"] .focus\:text-accent-foreground:focus {
+            color: var(--primary) !important;
         }
     }
 
@@ -388,7 +419,7 @@
     }
 }
 
-@-moz-document regexp("^https://(www.)?la-cale.space/(tresor|upload|forums/(topic/)?[a-zA-Z0-9]*(/new)?.*)") {
+@-moz-document regexp("^https://(www.)?la-cale.space/(login|tresor|upload|forums/(topic/)?[a-zA-Z0-9]*(/new)?.*)") {
     @media (prefers-color-scheme: light) {
 
         /* --- BG Patches --- */
